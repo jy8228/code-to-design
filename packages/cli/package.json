@@ -1,0 +1,34 @@
+{
+  "name": "code-to-design",
+  "version": "0.2.8",
+  "description": "AI-powered UI review canvas — CLI tool",
+  "type": "module",
+  "bin": {
+    "code-to-design": "./bin/code-to-design.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup",
+    "build:canvas": "cd ../../apps/canvas && npx vite build && rm -rf ../../packages/cli/canvas-dist && cp -r dist ../../packages/cli/canvas-dist",
+    "prepublishOnly": "npm run build:canvas && npm run build",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "files": [
+    "dist",
+    "bin",
+    "canvas-dist"
+  ],
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "playwright": "^1.49.0",
+    "sirv": "^3.0.0"
+  },
+  "devDependencies": {
+    "@code-to-design/core": "*",
+    "tsup": "^8.5.1",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
+  }
+}

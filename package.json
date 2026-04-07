@@ -1,0 +1,22 @@
+{
+  "name": "code-to-design",
+  "version": "0.1.0",
+  "private": true,
+  "description": "AI-powered UI review canvas for Next.js projects",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "clean": "rm -rf packages/*/dist apps/*/dist node_modules/.cache",
+    "code-to-design": "node --import tsx packages/cli/src/cli-entry.ts"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.21.0"
+  }
+}
